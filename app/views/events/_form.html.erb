@@ -1,0 +1,11 @@
+<%= form_with model: event, class: "new-event-form" do |form| %>
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+  <%= form.label :location %>
+  <%= form.text_field :location %>
+  <%= form.label :datetime %>
+  <%= form.datetime_field :datetime %>
+  <%= form.label :description %>
+  <%= form.text_area :description %>
+  <%= form.submit "Submit" %>
+<% end %>

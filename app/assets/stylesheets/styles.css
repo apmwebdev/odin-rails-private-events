@@ -1,3 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 18px;
+    color: hsl(0, 0%, 30%);
+}
+
+a {
+    color: hsl(230, 40%, 60%);
+}
+
+a:visited {
+    color: hsl(270, 40%, 60%);
+}
+
 .notice {
     color: green;
+}
+
+.events-list dt {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.events-list dt:not(:first-child) {
+    margin-top: 18px;
+}
+
+.events-list dd {
+    margin-inline-start: 0px;
+}
+
+.new-event-form {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    gap: 12px;
 }
