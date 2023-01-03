@@ -1,0 +1,13 @@
+class UsersController < ApplicationController
+  def index
+    @users = User.all
+  end
+
+  def show
+    if params.has_key?(:id)
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
+  end
+end

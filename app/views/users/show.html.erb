@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+<%#= render @user %>
+<h1><%= @user.email %></h1>
+
+<div id="events">
+  <h2>Events created by user</h2>
+  <% @user.created_events.each do |event| %>
+    <p>
+      <strong><%= event.title %></strong>
+    </p>
+    <p>
+      Location: <%= event.location %> at <%= event.datetime %>
+    </p>
+    <p>
+      <%= link_to "Show this event", event %>
+    </p>
+  <% end %>
+</div>
+
+<div>
+<!--  <%#= link_to "Edit this user", edit_user_path(@user) %> |-->
+  <%= link_to "Back to users", users_path %>
+
+  <%= button_to "Destroy this user", @user, method: :delete %>
+</div>
