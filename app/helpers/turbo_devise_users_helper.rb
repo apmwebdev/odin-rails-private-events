@@ -1,0 +1,2 @@
+module TurboDeviseUsersHelper
+end

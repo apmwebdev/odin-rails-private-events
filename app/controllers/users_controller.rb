@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show
+  def profile
     if params.has_key?(:id)
       @user = User.find(params[:id])
     else
