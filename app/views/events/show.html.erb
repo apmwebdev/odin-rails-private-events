@@ -1,8 +1,37 @@
-<%= render @event %>
+<h1><%= @event.title %></h1>
+
+<p>
+  <strong>Location:</strong>
+  <%= @event.location %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @event.datetime %>
+</p>
+
+<h3>Description:</h3>
+<%= @event.description %>
+
+<h3>People Attending</h3>
+<% if @event.attendees.empty? %>
+  <p>No one attending yet</p>
+<% else %>
+  <ul>
+  <% @event.attendees.each do |attendee| %>
+    <li><%= attendee.email %></li>
+  <% end %>
+  </ul>
+<% end %>
 
 <div>
-  <%= link_to "Edit this event", edit_event_path(@event) %> |
-  <%= link_to "Back to events", events_path %>
-
-  <%= button_to "Destroy this event", @event, method: :delete %>
+  <% if @event.creator == current_user %>
+    <%= link_to "Edit event", edit_event_path(@event) %> |
+    <%= link_to "Cancel event", @event, method: :delete %>
+  <% elsif @event.attendees.include?(current_user) %>
+    <%= link_to "Cancel RSVP", cancel_rsvp_event_path(@event), data: { turbo_method: :delete } %>
+  <% else %>
+    <%= link_to "Attend this event", rsvp_event_path(@event), data: { turbo_method: :post } %>
+  <% end %>
 </div>
+<p><%= link_to "Back to events", events_path %></p>
