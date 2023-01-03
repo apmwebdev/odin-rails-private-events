@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_event, only: %i[show edit update destroy]
+  before_action :set_event, only: %i[show edit update destroy rsvp cancel_rsvp]
   def index
     @events = Event.all.includes(:creator)
   end
@@ -35,6 +35,20 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     redirect_to events_path, notice: "Event deleted successfully"
+  end
+
+  def rsvp
+    if @event.attendees.include?(current_user)
+      redirect_to @event, notice: "You are already RSVPed for this event"
+    else
+      @event.attendees << current_user
+      redirect_to @event, notice: "RSVPed successfully"
+    end
+  end
+
+  def cancel_rsvp
+    @event.attendees.destroy(current_user)
+    redirect_to @event, notice: "RSVP canceled"
   end
 
   private
