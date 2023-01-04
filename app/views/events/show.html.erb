@@ -27,7 +27,7 @@
 <div>
   <% if @event.creator == current_user %>
     <%= link_to "Edit event", edit_event_path(@event) %> |
-    <%= link_to "Cancel event", @event, method: :delete %>
+    <%= link_to "Cancel event", @event, data: { turbo_method: :delete } %>
   <% elsif @event.attendees.include?(current_user) %>
     <%= link_to "Cancel RSVP", cancel_rsvp_event_path(@event), data: { turbo_method: :delete } %>
   <% else %>

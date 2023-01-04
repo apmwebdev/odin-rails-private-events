@@ -1,8 +1,12 @@
 <div class="user-events">
-  <% events.each do |event| %>
-    <p>
-      <strong><%=link_to event.title, event %></strong>
-      <br>Location: <%= event.location %> at <%= event.datetime %>
-    </p>
-  <% end %>
+  <% if !events.empty? %>
+    <% events.each do |event| %>
+      <p>
+        <strong><%=link_to event.title, event %></strong>
+        <br>Location: <%= event.location %> at <%= event.datetime %>
+      </p>
+    <% end %>
+<% else %>
+  <p>No events</p>
+<% end %>
 </div>

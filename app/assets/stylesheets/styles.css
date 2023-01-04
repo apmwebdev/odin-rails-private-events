@@ -12,6 +12,14 @@ body {
     /*margin: 0;*/
 }
 
+h3 {
+    margin: 0;
+}
+
+p {
+    margin: 8px 0;
+}
+
 a {
     color: hsl(230, 40%, 60%);
 }
@@ -49,18 +57,6 @@ a:visited {
 
 .user-events {
     padding: 8px;
-}
-
-.created-events .user-events {
-    background-color: hsl(120, 50%, 90%);
-}
-
-.past-attended-events .user-events {
-    background-color: hsl(270, 50%, 90%);
-}
-
-.future-attending-events .user-events {
-    background-color: hsl(230, 50%, 90%);
 }
 
 header {
