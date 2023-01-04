@@ -1,0 +1,8 @@
+<div class="user-events">
+  <% events.each do |event| %>
+    <p>
+      <strong><%=link_to event.title, event %></strong>
+      <br>Location: <%= event.location %> at <%= event.datetime %>
+    </p>
+  <% end %>
+</div>
