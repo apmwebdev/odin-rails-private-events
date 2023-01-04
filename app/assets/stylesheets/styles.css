@@ -24,6 +24,10 @@ a:visited {
     color: green;
 }
 
+.alert {
+    color: hsl(50, 60%, 45%);
+}
+
 .events-list dt {
     font-size: 24px;
     font-weight: bold;
@@ -57,4 +61,27 @@ a:visited {
 
 .future-attending-events .user-events {
     background-color: hsl(230, 50%, 90%);
+}
+
+header {
+    font-size: 20px;
+}
+
+header .message {
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.header-nav-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 12px 20px 12px;
+    border-bottom: 2px solid hsl(0, 0%, 80%);
+}
+
+.header-nav-container nav {
+    display: flex;
+    justify-content: flex-start;
+    gap: 18px;
 }

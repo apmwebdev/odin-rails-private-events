@@ -1,0 +1,9 @@
+<h1>Users</h1>
+
+<div id="users">
+  <% @users.each do |user| %>
+    <p><%= user.email %></p>
+  <% end %>
+</div>
+
+<%= link_to "New user", new_user_registration_path %>
