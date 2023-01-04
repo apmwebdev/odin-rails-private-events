@@ -1,12 +1,9 @@
 <h1>Events</h1>
 
-<div id="posts">
-  <dl class="events-list">
-  <% @events.each do |event| %>
-      <dt><%= link_to event.title, event %></dt>
-      <dd><%= event.location %> @ <%= event.datetime %></dd>
-      <dd>Created by <%= event.creator.email %></dd>
-  <% end %>
-  </dl>
+<div id="events">
+  <h2>Upcoming</h2>
+  <%= render "events_list", events: Event.future %>
+  <h2>Past</h2>
+  <%= render "events_list", events: Event.past %>
 </div>
 <%= link_to "New event", new_event_path %>
